@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: 5f0ea53cae6d25a48bfcc2e63d08608f
+timeCreated: 1480113638
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Armor
+    100004: ArmPads
+    100006: ChestStraps
+    100008: Helm
+    100010: HelmInside
+    100012: HipArmor
+    100014: polygon0
+    100016: polygon1
+    100018: polygon11
+    100020: polygon2
+    100022: polygon3
+    100024: polygon3_MeshPart0
+    100026: polygon3_MeshPart1
+    100028: polygon3_MeshPart2
+    100030: polygon4
+    100032: polygon5
+    100034: polygon8
+    100036: ShoulderPads
+    100038: TorsoArmor
+    100040: Vent2
+    100042: Vents
+    100044: Visor
+    100046: VisorInside
+    400000: //RootNode
+    400002: Armor
+    400004: ArmPads
+    400006: ChestStraps
+    400008: Helm
+    400010: HelmInside
+    400012: HipArmor
+    400014: polygon0
+    400016: polygon1
+    400018: polygon11
+    400020: polygon2
+    400022: polygon3
+    400024: polygon3_MeshPart0
+    400026: polygon3_MeshPart1
+    400028: polygon3_MeshPart2
+    400030: polygon4
+    400032: polygon5
+    400034: polygon8
+    400036: ShoulderPads
+    400038: TorsoArmor
+    400040: Vent2
+    400042: Vents
+    400044: Visor
+    400046: VisorInside
+    2300000: Armor
+    2300002: ArmPads
+    2300004: ChestStraps
+    2300006: Helm
+    2300008: HelmInside
+    2300010: HipArmor
+    2300012: polygon0
+    2300014: polygon1
+    2300016: polygon11
+    2300018: polygon2
+    2300020: polygon3_MeshPart0
+    2300022: polygon3_MeshPart1
+    2300024: polygon3_MeshPart2
+    2300026: polygon4
+    2300028: polygon5
+    2300030: polygon8
+    2300032: ShoulderPads
+    2300034: TorsoArmor
+    2300036: Vent2
+    2300038: Vents
+    2300040: Visor
+    2300042: VisorInside
+    3300000: Armor
+    3300002: ArmPads
+    3300004: ChestStraps
+    3300006: Helm
+    3300008: HelmInside
+    3300010: HipArmor
+    3300012: polygon0
+    3300014: polygon1
+    3300016: polygon11
+    3300018: polygon2
+    3300020: polygon3_MeshPart0
+    3300022: polygon3_MeshPart1
+    3300024: polygon3_MeshPart2
+    3300026: polygon4
+    3300028: polygon5
+    3300030: polygon8
+    3300032: ShoulderPads
+    3300034: TorsoArmor
+    3300036: Vent2
+    3300038: Vents
+    3300040: Visor
+    3300042: VisorInside
+    4300000: Armor
+    4300002: ArmPads
+    4300004: ChestStraps
+    4300006: Helm
+    4300008: HelmInside
+    4300010: HipArmor
+    4300012: polygon0
+    4300014: polygon1
+    4300016: polygon11
+    4300018: polygon2
+    4300020: polygon3_MeshPart0
+    4300022: polygon3_MeshPart1
+    4300024: polygon3_MeshPart2
+    4300026: polygon4
+    4300028: polygon5
+    4300030: polygon8
+    4300032: ShoulderPads
+    4300034: TorsoArmor
+    4300036: Vent2
+    4300038: Vents
+    4300040: Visor
+    4300042: VisorInside
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
