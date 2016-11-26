@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 sceneSetups: []
+=======
+sceneSetups:
+- path: Assets/PokemonARMainScene.unity
+  isLoaded: 1
+  isActive: 1
+>>>>>>> fb4b30e536a4f77b916faf9c63c088738976cb87
