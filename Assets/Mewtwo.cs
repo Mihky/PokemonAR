@@ -1,4 +1,4 @@
-﻿﻿using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -8,6 +8,15 @@ public class Mewtwo : MonoBehaviour {
 	private Dictionary<string, ParticleSystem> moves = new Dictionary<string, ParticleSystem> ();
 	private float randomMove;
 	private GameObject ActionHUD;
+
+	public int startingHealth = 410;
+	public int currentHealth;
+	public GameObject UICurrentHealth;
+	public Slider healthSlider;
+	public GameObject SnorlaxWinScreenPanel;
+	public static bool isMewtwoDead;
+	public Snorlax snorlaxScript;
+
 
 	// Use this for initialization
 	void Start () {
@@ -35,51 +44,86 @@ public class Mewtwo : MonoBehaviour {
 		ActionHUD = GameObject.Find("ActionHUD");
 	}
 
+	void Awake() {
+		isMewtwoDead = false;
+		currentHealth = startingHealth;
+	}
+
+	public void TakeDamage(int amount) {
+		currentHealth -= amount;
+		if (currentHealth < 0) {
+			currentHealth = 0;
+		}
+		healthSlider.value = currentHealth;
+		// Updates UI Snorlax's current health
+		UICurrentHealth.GetComponent<Text>().text = currentHealth.ToString();
+		if (currentHealth <= 0 && !isMewtwoDead) {
+			Death();
+		}
+	}
+
+	void Death() {
+		isMewtwoDead = true;
+		// Display Snorlax's win screen
+		SnorlaxWinScreenPanel.GetComponent<CanvasGroup>().alpha = 0.85f;
+	}
+
+	bool StillPlaying() {
+		if (isMewtwoDead || Snorlax.isSnorlaxDead) {
+			return false;
+		}
+		return true;
+	}
+
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.A)) {
-			AI ();
-		}
+//		if (Input.GetKeyDown (KeyCode.A)) {
+//			AI ();
+//		}
 	}
 
 	public void AI()
 	{
 		// Before Mewtwo does a move check to see if game is still going. Game is going if:
 		// 1. Mewtwo or Snorlax has health above 0
+		if (StillPlaying()) {
+			string moveName = "";
+			int damage = 0;
+			bool hit = true;
+			randomMove = float.Parse(Random.value.ToString("F2"));
+			// Swift < 0.25 | 0.25 <= Psychic < 0.5 | 0.5 <= Thunder < 0.75 | 0.75 <= Rock Slide < 1.0
+			if (randomMove < 0.25) {
+				moveName = "Swift";
+				damage = 60;
+			} else if (randomMove < 0.5)
+			{
+				moveName = "Psychic";
+				damage = 90;
+			} else if (randomMove < .75)
+			{
+				if (MoveHit(0.7f)) {
+					moveName = "Thunder";
+					damage = 100;
+				} else
+				{
+					hit = false;
+				}
+			} else
+			{
+				if (MoveHit(0.9f))
+				{
+					moveName = "RockSlide";
+					damage = 70;
+				} else
+				{
+					hit = false;
+				}
+			}
 
-		string moveName = "";
-		bool hit = true;
-		randomMove = float.Parse(Random.value.ToString("F2"));
-		// Swift
-		if (randomMove < 0.25) {
-			moveName = "Swift";
-		// Psychic
-		} else if (randomMove < 0.5)
-		{
-			moveName = "Psychic";
-		// Thunder
-		} else if (randomMove < .75)
-		{
-			if (MoveHit(0.7f)) {
-				moveName = "Thunder";
-			} else
-			{
-				hit = false;
-			}
-		// Rock Slide
-		} else
-		{
-			if (MoveHit(0.9f))
-			{
-				moveName = "RockSlide";
-			} else
-			{
-				hit = false;
-			}
+			UseMove(moveName);
+			snorlaxScript.TakeDamage(damage);
+			UpdateActionHUD(moveName, hit);
 		}
-
-		UseMove(moveName);
-		UpdateActionHUD(moveName, hit);
 	}
 
 	// Checks if moves hit/miss for moves that have < 100% hit rate

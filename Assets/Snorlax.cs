@@ -10,6 +10,13 @@ public class Snorlax : MonoBehaviour {
 	// Need to access panel
 	private GameObject ActionHUD;
 
+	public int startingHealth = 520;
+	public int currentHealth;
+	public GameObject UICurrentHealth;
+	public Slider healthSlider;
+	public GameObject MewtwoWinScreenPanel;
+	public static bool isSnorlaxDead;
+
 	// Script(s) that Snorlax can talk to:
 	// 1. Mewtwo to let AI pick his move. Important function to access: AI()
 	public Mewtwo mewtwoScript;
@@ -43,48 +50,88 @@ public class Snorlax : MonoBehaviour {
 		// Access the Action HUD
 		ActionHUD = GameObject.Find("ActionHUD");
 	}
-	
+
+	void Awake() {
+		isSnorlaxDead = false;
+		currentHealth = startingHealth;
+	}
+
+	public void TakeDamage(int amount) {
+		currentHealth -= amount;
+		if (currentHealth < 0) {
+			currentHealth = 0;
+		}
+		healthSlider.value = currentHealth;
+		// Updates UI Snorlax's current health
+		UICurrentHealth.GetComponent<Text>().text = currentHealth.ToString();
+		if (currentHealth <= 0 && !isSnorlaxDead) {
+			Death();
+		}
+	}
+
+	void Death() {
+		isSnorlaxDead = true;
+		// Display Mewtwo's win screen
+		MewtwoWinScreenPanel.GetComponent<CanvasGroup>().alpha = 0.85f;
+	}
+
+	bool StillPlaying() {
+		if (isSnorlaxDead || Mewtwo.isMewtwoDead) {
+			return false;
+		}
+		return true;
+	}
+
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Z)) {
-			UseMove("Earthquake");
-			UpdateActionHUD("Earthquake", true);
-		} else if (Input.GetKeyDown (KeyCode.X)) {
-			UseMove("Hyperbeam");
-			UpdateActionHUD("Hyper Beam", true);
-		} else if (Input.GetKeyDown (KeyCode.C)) {
-			UseMove("Icebeam");
-			UpdateActionHUD("Ice Beam", true);
-		} else if (Input.GetKeyDown (KeyCode.V)) {
-			UseMove("Surf");
-			UpdateActionHUD("Surf", true);
+		if (StillPlaying ()) {
+			if (Input.GetKeyDown (KeyCode.Z)) {
+				UseMove ("Earthquake");
+				mewtwoScript.TakeDamage(70);
+				UpdateActionHUD ("Earthquake", true);
+			} else if (Input.GetKeyDown (KeyCode.X)) {
+				UseMove ("Hyperbeam");
+				mewtwoScript.TakeDamage(90);
+				UpdateActionHUD ("Hyper Beam", true);
+			} else if (Input.GetKeyDown (KeyCode.C)) {
+				UseMove ("Icebeam");
+				mewtwoScript.TakeDamage(60);
+				UpdateActionHUD ("Ice Beam", true);
+			} else if (Input.GetKeyDown (KeyCode.V)) {
+				UseMove ("Surf");
+				mewtwoScript.TakeDamage(60);
+				UpdateActionHUD ("Surf", true);
+			}
 		}
+//		mewtwoScript.AI ();
 	}
 
 	// Depending on input, uses one of Snorlax's four moves
 	void SnorlaxUse(string moveName) {
-		bool hit = true;
-		switch (moveName) {
-		case "Earthquake":
-			UseMove("Earthquake");
-			break;
-		case "Hyperbeam":
-			if (MoveHit (0.9f)) {
-				UseMove("Hyperbeam");
-			} else {
-				hit = false;
+		if (StillPlaying ()) {
+			bool hit = true;
+			switch (moveName) {
+			case "Earthquake":
+				UseMove ("Earthquake");
+				break;
+			case "Hyperbeam":
+				if (MoveHit (0.9f)) {
+					UseMove ("Hyperbeam");
+				} else {
+					hit = false;
+				}
+				break;
+			case "Icebeam":
+				UseMove ("Icebeam");
+				break;
+			case "Surf":
+				UseMove ("Surf");
+				break;
+			default:
+				break;
 			}
-			break;
-		case "Icebeam":
-			UseMove("Icebeam");
-			break;
-		case "Surf":
-			UseMove("Surf");
-			break;
-		default:
-			break;
+			UpdateActionHUD (moveName, hit);
 		}
-		UpdateActionHUD(moveName, hit);
 	}
 
 	// Checks if moves hit/miss for moves that have < 100% hit rate
@@ -153,7 +200,6 @@ public class Snorlax : MonoBehaviour {
 
 
 }
-
 
 
 //	// Plays Earthquake particle system
