@@ -77,9 +77,9 @@ public class Mewtwo : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-//		if (Input.GetKeyDown (KeyCode.A)) {
-//			AI ();
-//		}
+		if (!snorlaxScript.isSnorlaxTurn) {
+			AI ();
+		}
 	}
 
 	public void AI()
@@ -119,9 +119,9 @@ public class Mewtwo : MonoBehaviour {
 					hit = false;
 				}
 			}
-
 			UseMove(moveName);
 			snorlaxScript.TakeDamage(damage);
+			snorlaxScript.isSnorlaxTurn = true;
 			UpdateActionHUD(moveName, hit);
 		}
 	}
