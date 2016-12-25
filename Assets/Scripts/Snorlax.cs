@@ -180,8 +180,8 @@ public class Snorlax : MonoBehaviour {
 			ActionHUD.GetComponent<CanvasGroup>().alpha = 0.75f;
 		}
 
-		// Wait 5 seconds
-		yield return new WaitForSeconds(5);
+		// Wait 10 seconds
+		yield return new WaitForSeconds(10);
 
 		// After waiting
 		if (whatDo == "Surf") {
