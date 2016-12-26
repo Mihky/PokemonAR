@@ -18,7 +18,11 @@ I used Vuforia to connect the Pokemon Cards as the Image Targets to augment Snor
 - There are 4 buttons, Snorlax's moveset, that you can use.
 
 ## Gameplay
-- Coming Soon.
+[![ScreenShot](https://i9.ytimg.com/vi/UfwF1qz8mhI/default.jpg?sqp=CMC4hsMF&rs=AOn4CLDdgImN1f57mwkRgDyvPzCv_aH13w)](https://www.youtube.com/watch?v=UfwF1qz8mhI)
+
+Click To Watch :DD
+
+Note: Rock Slide has a minor bug
 
 ### Future Updates
 - I plan to switch out the buttons with speech recognition to use moves instead.
