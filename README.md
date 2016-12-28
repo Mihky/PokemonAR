@@ -18,7 +18,7 @@ I used Vuforia to connect the Pokemon Cards as the Image Targets to augment Snor
 - There are 4 buttons, Snorlax's moveset, that you can use.
 
 ## Gameplay
-[![ScreenShot](https://i9.ytimg.com/vi/UfwF1qz8mhI/default.jpg?sqp=CMC4hsMF&rs=AOn4CLDdgImN1f57mwkRgDyvPzCv_aH13w)](https://www.youtube.com/watch?v=UfwF1qz8mhI)
+[![Thumbnail](https://i.ytimg.com/vi/UfwF1qz8mhI/hqdefault.jpg?custom=true&w=246&h=138&stc=true&jpg444=true&jpgq=90&sp=68&sigh=SZta-Ymts2y6TvtwvIr0Tiv8GAw)](https://www.youtube.com/watch?v=UfwF1qz8mhI)
 
 Click To Watch :DD
 
