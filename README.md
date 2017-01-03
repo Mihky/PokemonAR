@@ -26,5 +26,5 @@ Note: Rock Slide has a minor bug
 
 ### Future Updates
 - Speech Recognition coming soon. Going to be able to tell Pokemon's to use the moves instead of clicking buttons.
-
+- Add original Pokemon Red/Blue version audio for the move animations.
 ![new doc 40_1](https://cloud.githubusercontent.com/assets/9558416/21291229/1cace8c4-c48c-11e6-9e87-607551feecb7.jpg)
