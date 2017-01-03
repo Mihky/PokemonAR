@@ -25,7 +25,6 @@ Click To Watch :DD
 Note: Rock Slide has a minor bug
 
 ### Future Updates
-- I plan to switch out the buttons with speech recognition to use moves instead.
-- I wasn't able to incorporate speech recognition because I wasn't able to update Windows 10. I tried though. But my laptop got infinitely "stuck" and I had to factory reset my laptop, and I lost a lot of my files. So I'm lowkey traumatized and will try again later. :(
+- Speech Recognition coming soon. Going to be able to tell Pokemon's to use the moves instead of clicking buttons.
 
 ![new doc 40_1](https://cloud.githubusercontent.com/assets/9558416/21291229/1cace8c4-c48c-11e6-9e87-607551feecb7.jpg)
